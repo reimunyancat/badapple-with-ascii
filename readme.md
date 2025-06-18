@@ -2,7 +2,7 @@
 
 A terminal-based Bad Apple video ASCII art player. This project converts the famous Bad Apple!! music video into text art and plays it in the terminal with synchronized music.
 
-![Bad Apple ASCII Example](https://via.placeholder.com/800x400)
+![Bad Apple ASCII Example](images/badapple.png)
 
 ## Overview
 
