@@ -9,6 +9,11 @@
 #include <filesystem>
 #include <SFML/Audio.hpp>
 
+// Windows console support for ANSI sequences
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 using namespace std;
 using namespace sf;
 namespace fs = std::filesystem;
@@ -115,12 +120,12 @@ int main(int argc, char* argv[]) {
     auto playback_start = chrono::steady_clock::now();
     int frame_index = 0;
     
-    while (sound.getStatus() == Sound::Status::Playing && frame_index < frames.size()) {
+    while (sound.getStatus() == SoundSource::Status::Playing && static_cast<size_t>(frame_index) < frames.size()) {
         auto current_time = chrono::steady_clock::now();
         auto elapsed = chrono::duration_cast<chrono::milliseconds>(current_time - playback_start).count();
         int target_frame = static_cast<int>(elapsed * 60 / 1000);
   
-        while (frame_index <= target_frame && frame_index < frames.size()) {
+        while (frame_index <= target_frame && static_cast<size_t>(frame_index) < frames.size()) {
             display_frame(frames[frame_index]);
             frame_index++;
         }

@@ -26,8 +26,8 @@ This project consists of three main components:
 
 ### C++ Dependencies
 
-- C++17 compatible compiler
-- SFML library (for audio playback)
+- C++17 compatible compiler (GCC 7+ or Clang 5+)
+- SFML 3.x library (for audio playback)
 
 ## Installation
 
@@ -60,7 +60,7 @@ This project consists of three main components:
    - macOS: `brew install ffmpeg`
    - Windows: Download from [ffmpeg download page](https://ffmpeg.org/download.html)
 
-5. Install SFML
+5. Install SFML 3.x
 
    - Arch Linux: `sudo pacman -S sfml`
    - Ubuntu: `sudo apt-get install libsfml-dev`
@@ -83,10 +83,17 @@ python frame.py
 
 ### 3. Run the Player
 
-Compile and run the C++ program:
+#### Option A: Using build script
 
 ```bash
-g++ -std=c++17 main.cpp -o main -lsfml-audio -lsfml-system -lsfml-graphics -lsfml-window
+./build.sh
+./main
+```
+
+#### Option B: Direct compilation
+
+```bash
+g++ -std=c++17 -O2 main.cpp -o main -lsfml-audio -lsfml-system
 ./main
 ```
 
@@ -97,6 +104,7 @@ g++ -std=c++17 main.cpp -o main -lsfml-audio -lsfml-system -lsfml-graphics -lsfm
 ├── extract_frames.py     # Script to extract PNG frames from video
 ├── frame.py              # Script to convert PNG images to ASCII text
 ├── main.cpp              # C++ program to play ASCII art in terminal with music
+├── build.sh              # Unix/Linux build script
 ├── requirements.txt      # Python dependencies list
 ├── BA_frame/             # Frame storage directory
 │   ├── png/              # Original PNG frames (auto-generated)
