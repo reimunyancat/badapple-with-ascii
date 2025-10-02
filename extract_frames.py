@@ -42,19 +42,11 @@ if __name__ == "__main__":
 
     if not check_ffmpeg():
         print("Error: ffmpeg is not installed or not in PATH. Please install ffmpeg first.")
-        print("Installation instructions:")
-        print("  - Arch Linux: sudo pacman -S ffmpeg")
-        print("  - Ubuntu: sudo apt-get install ffmpeg")
-        print("  - macOS: brew install ffmpeg")
-        print("  - Windows: Download from https://ffmpeg.org/download.html")
         sys.exit(1)
     
     frame = extract_frames(video_path, output_dir, fps)
     
     if frame:
         print("Frame extraction completed successfully.")
-        print("Next steps:")
-        print("1. Run 'python frame.py' to convert frames to ASCII art")
-        print("2. Compile and run main.cpp to play the animation")
     else:
         print("Frame extraction failed.")
