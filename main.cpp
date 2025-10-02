@@ -9,7 +9,6 @@
 #include <filesystem>
 #include <SFML/Audio.hpp>
 
-// Windows console support for ANSI sequences
 #ifdef _WIN32
 #include <windows.h>
 #endif
