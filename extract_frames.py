@@ -38,7 +38,7 @@ def extract_frames(video_path, output_dir, fps):
 if __name__ == "__main__":
     video_path = 'bad_apple.mp4'
     output_dir = './BA_frame/png'
-    fps = 30
+    fps = 60
 
     if not check_ffmpeg():
         print("Error: ffmpeg is not installed or not in PATH. Please install ffmpeg first.")
